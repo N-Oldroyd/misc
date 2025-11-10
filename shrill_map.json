@@ -1,0 +1,43 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": 500,
+  "height": 300,
+  "layer": [
+    {
+      "data": {
+            "url": "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/datasets/advanced/nuts1.json",
+            "format": {"type": "json", "property": "features"}
+          },
+      "projection": {
+        "type": "equalEarth"
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightgray",
+        "stroke": "white"
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/N-Oldroyd/misc/refs/heads/main/df2-2.csv",
+        "format": {"type": "csv"}
+      },
+      "projection": {
+        "type": "equalEarth"
+      },
+      "mark": "circle",
+      "encoding": {
+        "longitude": {
+          "field": "long",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "size": {"value": 10},
+        "color": {"value": "steelblue"}
+      }
+    }
+  ]
+}
